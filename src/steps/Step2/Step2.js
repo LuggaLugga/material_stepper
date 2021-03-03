@@ -4,7 +4,7 @@ import {MaterialStepperContext} from "../../MaterialStepper";
 
 export default function Step2(props) {
 
-    const {configurationData, setConfigurationData} = useContext(MaterialStepperContext);
+    const {configurationData, setConfigurationData, handleNext, handleBack, jumpToStep} = useContext(MaterialStepperContext);
 
     useEffect(() => {
         setConfigurationData("hello from step2")

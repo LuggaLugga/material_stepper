@@ -6,15 +6,15 @@ export default function steps() {
     return [
         {
             name: "Step 1",
-            component: Step1
+            Component: Step1
         },
         {
             name: "Step 2",
-            component: Step2
+            Component: Step2
         },
         {
             name: "Step3",
-            component: Step3
+            Component: Step3
         }
     ]
 }

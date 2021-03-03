@@ -39,15 +39,9 @@ export default function MaterialStepper(props) {
         }
     }
 
-    const stepProps = {
-        handleNext: handleNext,
-        handleBack: handleBack,
-        jumpToStep: jumpToStep
-    };
-
-    const getStep = (steps, activeStep, stepProps) => {
-        const step = steps[activeStep];
-        return <step.component {...stepProps}/>;
+    const getStep = () => {
+        const Step = steps[activeStep];
+        return <Step.Component/>;
     }
 
     const processBar = () => {
@@ -66,9 +60,15 @@ export default function MaterialStepper(props) {
 
     const content = () => {
         return (
-            <MaterialStepperContext.Provider value={{configurationData, setConfigurationData}}>
+            <MaterialStepperContext.Provider value={{
+                configurationData,
+                setConfigurationData,
+                handleNext,
+                handleBack,
+                jumpToStep
+            }}>
                 <Grid item>
-                    {getStep(steps, activeStep, stepProps)}
+                    {getStep()}
                 </Grid>
             </MaterialStepperContext.Provider>
         );

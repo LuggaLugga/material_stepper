@@ -5,14 +5,11 @@ import {Button} from "@material-ui/core";
 
 export default function Step1(props) {
 
-    const {configurationData, setConfigurationData} = useContext(MaterialStepperContext);
-
-    const {handleNext, handleBack, jumpToStep} = props;
+    const {configurationData, setConfigurationData, handleNext, handleBack, jumpToStep} = useContext(MaterialStepperContext);
 
     useEffect(() => {
         setConfigurationData("hello from step1")
     }, [])
-
 
     return (
         <React.Fragment>
