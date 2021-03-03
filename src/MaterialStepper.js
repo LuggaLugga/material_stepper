@@ -17,24 +17,16 @@ export default function MaterialStepper(props) {
     const [activeStep, setActiveStep] = useState(0);
     const [configurationData, setConfigurationData] = useState("works");
 
-    const handleNext = (skip) => {
-        if(skip && typeof skip === "number") {
-            setActiveStep(skip - 1)
-        } else {
-            setActiveStep(prevState => prevState + 1);
-        }
+    const handleNext = () => {
+        setActiveStep(prevState => prevState + 1);
     }
 
-    const handleBack = (skip) => {
-        if(skip && typeof skip === "number") {
-            setActiveStep(skip - 1)
-        } else {
-            setActiveStep(prevState => prevState - 1);
-        }
+    const handleBack = () => {
+        setActiveStep(prevState => prevState - 1);
     }
 
     const jumpToStep = (step) => {
-        if(step && typeof step === "number") {
+        if (step && typeof step === "number") {
             setActiveStep(step - 1)
         }
     }

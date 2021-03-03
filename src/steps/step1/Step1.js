@@ -6,7 +6,7 @@ import {Button} from "@material-ui/core";
 
 export default function Step1(props) {
 
-    const {configurationData, setConfigurationData, handleNext, handleBack, jumpToStep} = useContext(MaterialStepperContext);
+    const {configurationData, setConfigurationData, handleNext, jumpToStep} = useContext(MaterialStepperContext);
 
     useEffect(() => {
         setConfigurationData("hello from step1")
@@ -15,7 +15,8 @@ export default function Step1(props) {
     return (
         <React.Fragment>
             <h1>{configurationData}</h1>
-            <Button onClick={() => jumpToStep(3)}>Next</Button>
+            <Button variant="contained" onClick={handleNext} style={{margin: "1rem"}}>Next</Button>
+            <Button variant="contained" onClick={() => jumpToStep(3)} style={{margin: "1rem"}}>Jump to 3</Button>
         </React.Fragment>
     );
 }
