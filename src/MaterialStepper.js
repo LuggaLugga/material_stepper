@@ -1,6 +1,6 @@
 import React, {createContext, useState} from "react";
 
-import {Grid, Step, StepLabel, Stepper} from "@material-ui/core";
+import {Grid, Step, StepButton, StepLabel, Stepper} from "@material-ui/core";
 
 import {MaterialStepperStyles} from "./MaterialStepperStyles";
 
@@ -15,10 +15,17 @@ export default function MaterialStepper(props) {
     const materialStepperClasses = MaterialStepperStyles();
 
     const [activeStep, setActiveStep] = useState(0);
+    const [completed, setCompleted] = useState({});
     const [configurationData, setConfigurationData] = useState("works");
 
     const handleNext = () => {
         setActiveStep(prevState => prevState + 1);
+    }
+
+    const handleComplete = () => {
+        const newCompletedSteps = completed;
+        newCompletedSteps[activeStep] = true;
+        setCompleted({...newCompletedSteps});
     }
 
     const handleBack = () => {
@@ -42,7 +49,9 @@ export default function MaterialStepper(props) {
                 <Stepper activeStep={activeStep}>
                     {steps.map((step, index) => (
                         <Step key={("step" + index)} className={materialStepperClasses.processBarStepElement}>
-                            <StepLabel>{step.name}</StepLabel>
+                            <StepButton onClick={() => setActiveStep(index)} completed={completed[index]}>
+                                {step.name}
+                            </StepButton>
                         </Step>
                     ))}
                 </Stepper>
@@ -53,9 +62,12 @@ export default function MaterialStepper(props) {
     const content = () => {
         return (
             <MaterialStepperContext.Provider value={{
+                activeStep,
+                completed,
                 configurationData,
                 setConfigurationData,
                 handleNext,
+                handleComplete,
                 handleBack,
                 jumpToStep
             }}>
