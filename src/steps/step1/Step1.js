@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 
 import {MaterialStepperContext} from "../../MaterialStepper";
 import {Button} from "@material-ui/core";
@@ -9,7 +9,10 @@ export default function Step1(props) {
 
     const {handleNext, handleBack, jumpToStep} = props;
 
-    setConfigurationData("hello from step1")
+    useEffect(() => {
+        setConfigurationData("hello from step1")
+    }, [])
+
 
     return (
         <React.Fragment>
