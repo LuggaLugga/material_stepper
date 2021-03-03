@@ -1,6 +1,6 @@
 import React, {createContext, useState} from "react";
 
-import {Grid, Step, StepButton, StepLabel, Stepper} from "@material-ui/core";
+import {Grid, Step, StepButton, Stepper} from "@material-ui/core";
 
 import {MaterialStepperStyles} from "./MaterialStepperStyles";
 
