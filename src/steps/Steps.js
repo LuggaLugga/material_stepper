@@ -1,5 +1,5 @@
 import Step1 from "./step1/Step1";
-import Step2 from "./Step2/Step2";
+import Step2 from "./step2/Step2";
 import Step3 from "./step3/Step3";
 
 export default function steps() {
@@ -13,7 +13,7 @@ export default function steps() {
             Component: Step2
         },
         {
-            name: "Step3",
+            name: "Step 3",
             Component: Step3
         }
     ]

@@ -43,6 +43,7 @@ export default function MaterialStepper(props) {
         return <Step.Component/>;
     }
 
+    //TODO: use StepLabel instead of StepButton to be able to change label and connector styles
     const processBar = () => {
         return (
             <Grid item className={materialStepperClasses.fullWidthGridItem}>
